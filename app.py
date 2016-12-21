@@ -18,7 +18,7 @@ def webhook():
 
     print("Request:")
     print(json.dumps(req, indent=4))
-
+    
     res = processRequest(req)
 
     res = json.dumps(res, indent=4)
@@ -30,21 +30,21 @@ def webhook():
 
 def processRequest(req):
  
-  
-    res = makeWebhookResult()
+    name= req.get("result").get("parameters").get("name")
+    res = makeWebhookResult(name)
     return res
 
 
 
 
 
-def makeWebhookResult():
+def makeWebhookResult(name):
   
   
 
 
 
-    speech = "Ibrahim zahra " 
+    speech = name
 
     print("Response:")
     print(speech)
@@ -53,14 +53,14 @@ def makeWebhookResult():
         "text": speech,
         "attachments": [
             {
-                "title": "Ibrahim zahra",
+                "title": name,
                 "title_link": "https://spring.io/tools/sts",
                 "color": "#36a64f",
 
                 "fields": [
                     {
                         "title": "Condition",
-                        "value": "Ibrahim zahra",
+                        "value": name,
                         "short": "false"
                     }
                    
