@@ -19,37 +19,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    speech = "Webhook work ery well !good luck"
-
-    print("Response:")
-    print(speech)
-
-    slack_message = {
-        "text": speech,
-        {
-        "attachments": [
-            {
-                "fallback": "New ticket from Andrea Lee - Ticket #1943: Can't rest my password - https://groove.hq/path/to/ticket/1943",
-                "pretext": "New ticket from Andrea Lee",
-                "title": "Ticket #1943: Can't reset my password",
-                "title_link": "https://groove.hq/path/to/ticket/1943",
-                "text": "Help! I tried to reset my password but nothing happened!",
-                "color": "#7CD197"
-            }
-         ]
-       }
-     }
-
-    print(json.dumps(slack_message))
-
-    res= {
-        "speech": speech,
-        "displayText": speech,
-        "data": {"slack": slack_message},
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
-
+    res = processRequest(req)
 
     res = json.dumps(res, indent=4)
     # print(res)
@@ -57,7 +27,61 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-     # print(json.dumps(item, indent=4))
+
+def processRequest(req):
+ 
+  
+    res = makeWebhookResult()
+    return res
+
+
+
+
+
+def makeWebhookResult():
+  
+  
+
+
+
+    speech = "Ibrahim zahra " 
+
+    print("Response:")
+    print(speech)
+
+    slack_message = {
+        "text": speech,
+        "attachments": [
+            {
+                "title": "Ibrahim zahra",
+                "title_link": "https://spring.io/tools/sts",
+                "color": "#36a64f",
+
+                "fields": [
+                    {
+                        "title": "Condition",
+                        "value": "Ibrahim zahra",
+                        "short": "false"
+                    }
+                   
+                ],
+
+                "thumb_url": "https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/13718655_1143790748975145_2575595500054770440_n.jpg?oh=4a89371dd70b8cfe167d882da3fe6ca4&oe=58F85BFD"
+            }
+        ]
+    }
+
+  
+
+    print(json.dumps(slack_message))
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        "data": {"slack": slack_message},
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
 
 
 if __name__ == '__main__':
