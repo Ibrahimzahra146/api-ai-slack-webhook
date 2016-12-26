@@ -50,25 +50,7 @@ def makeWebhookResult(name):
     print(speech)
 
     slack_message = {
-        "text": speech,
-        "attachments": [
-            {
-                "title": name,
-                "title_link": "https://spring.io/tools/sts",
-                "color": "#36a64f",
-
-                "fields": [
-                    {
-                        "title": "Condition",
-                        "value": name,
-                        "short": "false"
-                    }
-                   
-                ],
-
-                "thumb_url": "https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/13718655_1143790748975145_2575595500054770440_n.jpg?oh=4a89371dd70b8cfe167d882da3fe6ca4&oe=58F85BFD"
-            }
-        ]
+        "text": speech
     }
 
   
